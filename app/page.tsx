@@ -109,7 +109,7 @@ const servicesData: ServiceData[] = [
 // Thin Services Header Component
 const Header = () => {
   return (
-    <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header className="w-full bg-white border-b border-gray-200">
       <div className="max-w-6xl mx-auto px-6 py-2">
         <div className="flex items-center justify-center">
           <h1 className="text-lg font-bold text-gray-900">Services</h1>
@@ -155,8 +155,8 @@ const ServiceSection = ({ service, index }: { service: ServiceData; index: numbe
     // Stacking animation that reveals content then stacks properly
     ScrollTrigger.create({
       trigger: section,
-      start: 'top top+40', // Start when it reaches just below header
-      end: 'bottom top+40',
+      start: 'top top', // Start when it reaches the top
+      end: 'bottom top',
       pin: true,
       pinSpacing: false,
       scrub: 0.5,
@@ -309,21 +309,21 @@ const ServiceSection = ({ service, index }: { service: ServiceData; index: numbe
   return (
     <section 
       ref={sectionRef}
-      className="relative h-[70vh] sm:h-[60vh] lg:h-[45vh] min-h-[500px] sm:min-h-[450px] lg:min-h-[350px]"
+      className="relative h-[90vh] sm:h-[70vh] lg:h-[45vh] min-h-[600px] sm:min-h-[500px] lg:min-h-[350px]"
       style={{ backgroundColor: service.backgroundColor }}
     >
       <div ref={contentRef} className="h-full">
-        <div className="max-w-7xl mx-auto px-6 h-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full items-center py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 h-full items-center py-6 sm:py-4">
             {/* Left Content */}
             <div className="space-y-4">
               {/* Title */}
               <div ref={titleRef}>
                 <h2 
-                  className="text-3xl lg:text-4xl font-bold leading-tight mb-2 transition-all duration-500 hover:scale-105 hover:tracking-wider relative group"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-2 transition-all duration-500 hover:scale-105 hover:tracking-wider relative group"
                   style={{ 
                     color: service.textColor,
-                    cursor: `url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='${encodeURIComponent(service.textColor)}' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='3' fill='${encodeURIComponent(service.textColor)}'/%3E%3C/svg%3E") 12 12, default`
+                    cursor: `url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='${encodeURIComponent(service.textColor)}' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='3' fill='${encodeURIComponent(service.textColor)}'/%3E%3C/svg%3E") 12 12, default`
                   }}
                 >
                   {/* Premium text glow effect */}
@@ -348,7 +348,7 @@ const ServiceSection = ({ service, index }: { service: ServiceData; index: numbe
               <div ref={detailsRef} className="space-y-4">
                 {/* Description */}
                 <p 
-                  className="text-base leading-relaxed max-w-lg transition-all duration-500 hover:opacity-100 hover:transform hover:translate-x-2 relative group"
+                  className="text-sm sm:text-base leading-relaxed max-w-lg transition-all duration-500 hover:opacity-100 hover:transform hover:translate-x-2 relative group"
                   style={{ 
                     color: service.textColor, 
                     opacity: 0.85,
@@ -370,11 +370,11 @@ const ServiceSection = ({ service, index }: { service: ServiceData; index: numbe
                 </p>
                 
                 {/* Services List - Compact grid with animations */}
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {service.services.slice(0, 6).map((serviceItem, serviceIndex) => (
                     <div 
                       key={serviceIndex}
-                      className="group text-sm font-medium py-2 px-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-md relative overflow-hidden backdrop-blur-sm inline-block w-fit"
+                      className="group text-xs sm:text-sm font-medium py-2 px-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-md relative overflow-hidden backdrop-blur-sm inline-block w-fit"
                       style={{ 
                         color: service.textColor, 
                         opacity: 0.85,
@@ -622,15 +622,15 @@ const ContactSection = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="relative h-[50vh] min-h-[400px] bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 flex items-center justify-center"
+      className="relative h-[70vh] sm:h-[50vh] min-h-[500px] sm:min-h-[400px] bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 flex items-center justify-center"
     >
-      <div className="contact-content max-w-4xl mx-auto px-6 h-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full items-center">
+              <div className="contact-content max-w-4xl mx-auto px-4 sm:px-6 h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 h-full items-center">
           {/* Left Content */}
           <div className="space-y-6">
             <div>
               <h2 
-                className="text-3xl lg:text-4xl font-bold leading-tight mb-2 text-white transition-all duration-500 hover:scale-105 hover:tracking-wider relative group"
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-2 text-white transition-all duration-500 hover:scale-105 hover:tracking-wider relative group"
                 style={{
                   cursor: `url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23ffffff' stroke='%23000000' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='4' fill='%23000000'/%3E%3C/svg%3E") 12 12, default`
                 }}
@@ -662,7 +662,7 @@ const ContactSection = () => {
               </p>
               
               {/* Contact Services List */}
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {['Free Consultation', 'Project Planning', 'Timeline Discussion', 'Budget Planning', 'Team Introduction', 'Strategy Session'].map((contactItem, contactIndex) => (
                   <div 
                     key={contactIndex}
@@ -697,9 +697,9 @@ const ContactSection = () => {
           </div>
 
           {/* Right Content - CTA Buttons */}
-          <div className="flex flex-col space-y-4 items-start lg:items-end">
+          <div className="flex flex-col space-y-4 items-center sm:items-start lg:items-end mt-6 lg:mt-0">
             <button 
-              className="group bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-500 hover:scale-105 hover:shadow-2xl relative overflow-hidden"
+              className="group bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-500 hover:scale-105 hover:shadow-2xl relative overflow-hidden w-full sm:w-auto"
               style={{
                 cursor: `url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23000000' stroke='%23ffffff' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='4' fill='%23ffffff'/%3E%3C/svg%3E") 12 12, pointer`
               }}
@@ -709,7 +709,7 @@ const ContactSection = () => {
             </button>
             
             <button 
-              className="group border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-500 hover:scale-105 hover:bg-white hover:text-gray-900 hover:shadow-2xl"
+              className="group border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-500 hover:scale-105 hover:bg-white hover:text-gray-900 hover:shadow-2xl w-full sm:w-auto"
               style={{
                 cursor: `url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23ffffff' stroke='%23000000' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='4' fill='%23000000'/%3E%3C/svg%3E") 12 12, pointer`
               }}

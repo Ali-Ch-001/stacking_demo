@@ -52,7 +52,7 @@ const servicesData: ServiceData[] = [
     title: 'Visual Identity',
     description: 'Visual identity is the unique visual language of your brand, creating memorable impressions and emotional connections with your audience.',
     services: [
-      'Logotype, Typography & Colour',
+      'Logotype, Typography',
       'Illustrations & 3D',
       'Photography Art Direction',
       'Brand Book & Guidelines',
@@ -309,7 +309,7 @@ const ServiceSection = ({ service, index }: { service: ServiceData; index: numbe
   return (
     <section 
       ref={sectionRef}
-      className="relative h-[45vh] min-h-[350px]" // Made thinner but readable
+      className="relative h-[70vh] sm:h-[60vh] lg:h-[45vh] min-h-[500px] sm:min-h-[450px] lg:min-h-[350px]"
       style={{ backgroundColor: service.backgroundColor }}
     >
       <div ref={contentRef} className="h-full">
